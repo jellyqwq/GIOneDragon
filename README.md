@@ -7,22 +7,22 @@
 
 ## 使用方法
 
-* 修改原神注册表对应的分辨率参数名字。
-  1. `win+R`
-  2. `regedit`
-  3. `计算机\HKEY_CURRENT_USER\SOFTWARE\miHoYo\原神`
-* 修改设置部分 BetterGI.exe 的绝对路径。
+### Step1
 
-```Batchfile
-:: #######################Config|设置|config#######################
-:: 用 UU 远控以手机版启动后导致的游戏分辨率修改会更正正常的 1920x1080 ,数字可能每台电脑不同
-:: 使用 win+R 运行 regedit 找到 HKEY_CURRENT_USER\SOFTWARE\miHoYo\原神
-:: 将 Screenmanager Resolution Height_xxxxxx 和 Screenmanager Resolution Width_xxxxxx
-:: 的 xxxxxx 部分替换下面的参数后面的随机值?应该是随机的吧
-reg add "%REG_PATH%" /v "Screenmanager Resolution Height_h2627697771" /t REG_DWORD /d 1080 /f >nul
-reg add "%REG_PATH%" /v "Screenmanager Resolution Width_h182942802" /t REG_DWORD /d 1920 /f >nul
+修改 `OneDragonPre.bat` 中的 `OneDragon.bat` 路径
 
-:: 填写本机的BetterGI绝对路径
-set "BETTERGI_PATH=E:\Program Files\BetterGI\BetterGI\BetterGI.exe"
-:: ########################################################
+```batchfile
+start "OneDragon" cmd /c "C:\Program Files\March7thAssistant\OneDragon.bat"
 ```
+
+### Step2
+
+修改 `OneDragon.bat` 中的 `BetterGI.exe` 绝对路径
+
+```batchfile
+set "BETTERGI_PATH=C:\Program Files\BetterGI\BetterGI.exe"
+```
+
+### Step3
+
+在（三月七助手-程序-运行脚本）中选择 `OneDragonPre.bat` 的路径，并选择运行脚本选项
